@@ -31,10 +31,21 @@ def create_yolo_structure(base_path):
 
 
 def convert_bbox_to_yolo(xmin, ymin, xmax, ymax):
-    x_center = round((xmax + xmin) / 2.0, 6)
-    y_center = round((ymax + ymin) / 2.0, 6)
-    width    = round(xmax - xmin, 6) 
-    height   = round(ymax - ymin, 6)
+    x_center = (xmin + xmax) / 2.0 / IMG_WIDTH
+    y_center = (ymin + ymax) / 2.0 / IMG_HEIGHT
+    width    = (xmax - xmin) / IMG_WIDTH
+    height   = (ymax - ymin) / IMG_HEIGHT
+    
+    x_center = min(max(x_center, 0), 1)
+    y_center = min(max(y_center, 0), 1)
+    width = min(max(width, 0), 1)
+    height = min(max(height, 0), 1)
+    
+    x_center = round(x_center, 6)
+    y_center = round(y_center, 6)
+    width    = round(width, 6) 
+    height   = round(height, 6)
+    
     return [x_center, y_center, width, height]
 
 
@@ -117,6 +128,10 @@ def print_yolo_directory_structure():
                 print(f"  └── labels/ ({txt_count} txt files)")
                         
                     
-                
+create_yolo_structure(yolo_base)
+copy_images_to_yolo_directory(yolo_base, openimages_base)
+convert_labels_to_yolo_format(yolo_base, openimages_base)
+print_yolo_directory_structure()
+
             
 

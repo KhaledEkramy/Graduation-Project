@@ -66,10 +66,10 @@ print("=" * 70)
 train_config = {
     'data': dataset_yaml,           # Path to dataset.yaml
     'epochs': 100,                   # Number of training epochs
-    'imgsz': 416,                    # Image size (416x416 for speed)
-    'batch': 16,                     # Batch size (adjust based on GPU memory)
+    'imgsz': 640,                    # Image size (416x416 for speed)
+    'batch': 5,                     # Batch size (adjust based on GPU memory)
     'device': 0,                     # GPU device (0 for first GPU, 'cpu' for CPU)
-    'workers': 8,                    # Number of dataloader workers
+    'workers': 2,                    # Number of dataloader workers
     'project': str(output_dir.parent.parent),  # Project directory
     'name': 'woman_yolov8n',        # Experiment name
     'exist_ok': True,                # Overwrite existing
@@ -81,7 +81,7 @@ train_config = {
     'warmup_epochs': 3,              # Warmup epochs
     'patience': 50,                  # Early stopping patience
     'save': True,                    # Save checkpoints
-    'save_period': 10,               # Save checkpoint every N epochs
+    'save_period': 5,               # Save checkpoint every N epochs
     'cache': False,                  # Cache images (set True if you have enough RAM)
     'val': True,                     # Validate during training
     'plots': True,                   # Generate training plots
@@ -99,10 +99,7 @@ for key, value in train_config.items():
 print("\n" + "=" * 70)
 print("🚀 STARTING TRAINING")
 print("=" * 70)
-print("\n⏰ Estimated time with ~50K images:")
-print("   - GPU (RTX 3060+): 8-12 hours")
-print("   - GPU (GTX 1660): 15-20 hours")
-print("   - CPU: 3-5 days (not recommended!)")
+
 print("\n💡 Training will save checkpoints every 10 epochs.")
 print("💡 Press Ctrl+C to stop training (last checkpoint will be saved).\n")
 
