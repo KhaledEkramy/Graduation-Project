@@ -92,7 +92,7 @@ def convert_labels_to_yolo_format(yolo_base, openimages_base):
                 
 def print_yolo_directory_structure():  
     print("\n" + "=" * 60)
-    print("📂 YOLO DIRECTORY STRUCTURE")
+    print("YOLO DIRECTORY STRUCTURE")
     print("=" * 60)
     yolo_dir = Path("./../woman_detection_yolo")
     for split in ['train', 'val', 'test']:
