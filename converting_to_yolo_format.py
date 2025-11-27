@@ -14,6 +14,10 @@ print("=" * 70)
 openimages_base = "./../OID"
 yolo_base = "./../woman_detection_yolo"
 
+# Define normalizing constants for YOLO format
+IMG_WIDTH = 640.0
+IMG_HEIGHT = 640.0
+
 def create_yolo_structure(base_path):
     dirs = ['train', 'val', 'test']
     
