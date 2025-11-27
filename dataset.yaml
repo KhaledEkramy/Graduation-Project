@@ -1,0 +1,16 @@
+# Woman Detection Dataset Configuration for YOLOv8
+
+# Dataset root path
+path: /home/khaled-ekramy/GraduationProject/woman_detection_yolo
+
+# Train/Val/Test splits (relative to 'path')
+train: train/images
+val: val/images
+test: test/images
+
+# Class names
+names:
+  0: Woman
+
+# Number of classes
+nc: 1
