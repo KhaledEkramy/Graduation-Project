@@ -24,7 +24,6 @@ def create_yolo_structure(base_path):
         
         images_path.mkdir(parents=True, exist_ok=True)
         labels_path.mkdir(parents=True, exist_ok=True)
-# create_yolo_structure(yolo_base)
 
 
 def convert_bbox_to_yolo(xmin, ymin, xmax, ymax):
@@ -49,7 +48,6 @@ def copy_images_to_yolo_directory(yolo_base, openimages_base):
         
         for img_path in images_list:
             shutil.copy(img_path, shutil_dest / img_path.name)
-# copy_images_to_yolo_directory(yolo_base, openimages_base)
 
 
 # Convert OpenImages labels to YOLO format and copy to YOLO directory
@@ -90,7 +88,6 @@ def convert_labels_to_yolo_format(yolo_base, openimages_base):
             
             with open(dist_dir / label_path.name, 'w') as f:
                 f.write("\n".join(yolo_lines))
-#convert_labels_to_yolo_format(yolo_base, openimages_base)
             
                 
 def print_yolo_directory_structure():  
@@ -114,9 +111,7 @@ def print_yolo_directory_structure():
             if labels_folder.exists():
                 txt_count = len(list(labels_folder.glob("*.txt")))
                 print(f"  └── labels/ ({txt_count} txt files)")
-            
-print_yolo_directory_structure()                
-            
+                        
                     
                 
             
